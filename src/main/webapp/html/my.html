@@ -1,11 +1,108 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>RPG</title>
-    <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link href="/css/my.css" rel="stylesheet">
+    <title>RPG</title>
 </head>
 <body>
-<h1>RPG admin panel</h1>
+<h1 id="adminPanelText">RPG admin panel</h1>
+<div id="createPlayerLayer">
+    <div id="fakeButtonCreatePlayer" onclick="showHideElement('createPlayerForm')">CREATE NEW PLAYER</div>
+    <form action="/" id="createPlayerForm" name="createPlayerForm" style="display: none">
+        <div id="formLayer">
+            <div class="inputFields">
+                <label>Name:</label>
+                <input name="name" id="inputName" minlength="1" maxlength="12" pattern="^[\u0400-\u04ffa-zA-Z\s]{3,12}$"
+                       placeholder="Name: 3-12 cyrillic latin" title="3-12 cyrillic latin" required>
+            </div>
+            <div class="inputFields">
+                <label for="inputTitle">Title:</label>
+                <input name="title" id="inputTitle" minlength="1" maxlength="30"
+                       pattern="^[\u0400-\u04ffa-zA-Z\s]{3,30}$"
+                       placeholder="Title: 3-12 cyrillic latin" title="3-30 cyrillic latin" required>
+            </div>
+            <div class="inputFields">
+                <label for="inputLevel">Level:</label>
+                <input name="level" id="inputLevel" type="number" min="0" max="100" placeholder="Level: 0-100" required>
+            </div>
+
+            <div class="inputFields">
+                <label for="inputBirthday">Birthday:</label>
+                <input name="birthday" id="inputBirthday" type="date" value="2022-01-01" min="2000-01-01"
+                       max="2022-12-31"
+                       required>
+            </div>
+
+            <div class="inputFields">
+                <label for="selectRace">Race:</label>
+                <select name="race" id="selectRace"></select>
+            </div>
+
+            <div class="inputFields">
+                <label for="selectProfession">Profession:</label>
+                <select name="profession" id="selectProfession"></select>
+            </div>
+
+            <div class="inputFields">
+                <label for="selectBanned">Banned:</label>
+                <select name="banned" id="selectBanned"></select>
+            </div>
+
+            <div class="inputFields">
+                <div id="fakeButtonGeneratePlayer" onclick="pasteRandomValueInIFields()">generate parameters</div>
+                <input type="submit" value="Create account">
+            </div>
+
+        </div>
+    </form>
+</div>
+<div id="pagesForView">
+    <form action="/" method="POST" id="formPageCountForView">
+        <label>Pages for view:
+            <select size="1" onchange="selectPageSizeForView(this.value)">
+                <option value="3">3</option>
+                <option value="7" selected="selected">7</option>
+                <option value="13">13</option>
+                <option value="20">20</option>
+            </select>
+        </label>
+    </form>
+</div>
+<table id="tablePanel">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Race</th>
+        <th>Profession</th>
+        <th>Birthday</th>
+        <th>Banned</th>
+        <th>Level</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<div id="paginator"></div>
 
 </body>
+<script src="/js/my.js"></script>
+<!--<script>-->
+<!--    const dateNow = Date.now()-->
+
+<!--    const link = document.createElement('link')-->
+<!--    link.href = "css/my.css?" + dateNow-->
+<!--    link.rel = "stylesheet"-->
+<!--    link.type = "text/css"-->
+<!--    document.head.appendChild(link)-->
+
+<!--    const js = document.createElement('script');-->
+<!--    js.src = "js/my.js?" + dateNow;-->
+<!--    document.body.appendChild(js)-->
+<!--</script>-->
 </html>

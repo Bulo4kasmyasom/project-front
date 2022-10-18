@@ -1,0 +1,232 @@
+body, #createPlayerForm {
+    animation: anim 1s;
+    animation-duration: 4s;
+    color: #333;
+}
+
+@font-face {
+    font-family: 'vtksalcalina';
+    src: url('fonts/vtksalcalina.woff2') format('woff2'),
+    url('fonts/vtksalcalina.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'billabong';
+    src: url('fonts/billabong.woff2') format('woff2'),
+    url('fonts/billabong.woff') format('woff');
+    font-display: swap;
+}
+
+@keyframes anim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+input,
+select {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 0 1px 1px #ccc;
+}
+
+input:focus,
+select:focus {
+    outline: none !important;
+    border: 2px solid #79b4e1;
+    box-shadow: 0 0 10px #79b4e1;
+}
+
+.inputFields {
+    margin-top: 10px;
+}
+
+.inputFields input[type=date] {
+    width: 100%;
+}
+
+#fakeButtonGeneratePlayer {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 1px 1px #ccc;
+    margin-right: 5px;
+}
+
+.inputFields input[type=submit], #fakeButtonGeneratePlayer {
+    font-family: "vtksalcalina", serif;
+    background-color: #ffffff;
+    font-size: 20px;
+    padding: 3px 0;
+}
+
+.inputFields input[type=submit]:hover,
+#fakeButtonGeneratePlayer:hover {
+    box-shadow: 0 0 2px 2px #5bb0e8;
+    cursor: pointer;
+}
+
+.inputFields input[type=submit]:active,
+#fakeButtonGeneratePlayer:active {
+    color: red;
+    font-weight: bold;
+}
+
+.inputFields select {
+    width: 67%;
+    background-color: white;
+}
+
+#tablePanel {
+    width: 60%;
+    border: 1px solid darkgrey;
+    margin: 0 auto;
+    color: #333;
+    border-radius: 6px;
+}
+
+#tablePanel th,
+#tablePanel td {
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid darkgrey;
+    box-shadow: 0 0 3px #CCC;
+}
+
+#createPlayerLayer {
+    margin: 0 auto;
+    width: 30%;
+}
+
+#formLayer {
+    margin: 0 auto;
+    width: 60%;
+}
+
+td[id^="level"],
+td[id^="birthday"],
+td[id^="profession"],
+td[id^="race"],
+td[id^="banned"],
+td[id^="id"],
+td[id^="level"] {
+    text-align: center;
+}
+
+img[id^="edit"],
+img[id^="delete"] {
+    display: block;
+    margin: 0 auto;
+}
+
+td[id^="profession"] select,
+td[id^="race"] select,
+td[id^="banned"] select {
+    background-color: white;
+}
+
+.inputFields {
+    border-radius: 3px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.inputFields > label {
+    flex: 1;
+}
+
+.inputFields > input {
+    flex: 2;
+}
+
+h1 {
+    text-align: center;
+    font-family: "vtksalcalina", serif;
+    color: #333;
+}
+
+#pagesForView {
+    border: 1px solid #999999;
+    width: 20%;
+    display: block;
+    padding: 2px 0;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+#fakeButtonCreatePlayer {
+    font-family: "billabong", serif;
+    font-size: 20px;
+    color: #444;
+    border: 1px solid #CCC;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 5px -1px #999;
+    cursor: pointer;
+    vertical-align: middle;
+    max-width: 170px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto 10px;
+}
+
+#fakeButtonCreatePlayer:active {
+    color: red;
+}
+
+#fakeButtonCreatePlayer:hover {
+    box-shadow: 0 0 2px 2px #5bb0e8;
+}
+
+
+#formPageCountForView select {
+    background-color: white;
+}
+
+#formPageCountForView {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#paginator {
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#paginator span {
+    margin-bottom: 15px;
+}
+
+.pageNumber {
+    margin-right: 10px;
+    padding: 8px 8px;
+    border: 1px solid #999999;
+    box-shadow: 2px 2px 3px 3px #ddd;
+    border-radius: 5px;
+}
+
+.pageNumber:hover {
+    cursor: pointer;
+    border-color: blue;
+    box-shadow: 1px 1px 3px 3px #5bb0e8;
+}
+
+.activePageNumber {
+    font-weight: bold;
+    color: #5bb0e8;
+    pointer-events: none;
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #999;
+    box-shadow: 1px 1px 3px 3px #999;
+}
+
+
