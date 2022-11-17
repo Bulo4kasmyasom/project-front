@@ -8,8 +8,11 @@
 </head>
 <body>
 <h1 id="adminPanelText">RPG admin panel</h1>
+
 <div id="createPlayerLayer">
-    <div id="fakeButtonCreatePlayer" onclick="showHideElement('createPlayerForm')">CREATE NEW PLAYER</div>
+
+    <div id="fakeButtonCreatePlayer" onclick="showHideElement('#createPlayerForm')">CREATE NEW PLAYER</div>
+
     <form action="/" id="createPlayerForm" name="createPlayerForm" style="display: none">
         <div id="formLayer">
             <div class="inputFields">
@@ -31,7 +34,7 @@
             <div class="inputFields">
                 <label for="inputBirthday">Birthday:</label>
                 <input name="birthday" id="inputBirthday" type="date" value="2022-01-01" min="2000-01-01"
-                       max="2022-12-31"
+                       max="3000-12-31"
                        required>
             </div>
 
@@ -57,6 +60,9 @@
 
         </div>
     </form>
+
+    <div id="playerAddedResult" style="display: none"></div>
+
 </div>
 <div id="pagesForView">
     <form action="/" method="POST" id="formPageCountForView">
@@ -70,6 +76,7 @@
         </label>
     </form>
 </div>
+
 <table id="tablePanel">
     <thead>
     <tr>
@@ -92,17 +99,4 @@
 
 </body>
 <script src="/js/my.js"></script>
-<!--<script>-->
-<!--    const dateNow = Date.now()-->
-
-<!--    const link = document.createElement('link')-->
-<!--    link.href = "css/my.css?" + dateNow-->
-<!--    link.rel = "stylesheet"-->
-<!--    link.type = "text/css"-->
-<!--    document.head.appendChild(link)-->
-
-<!--    const js = document.createElement('script');-->
-<!--    js.src = "js/my.js?" + dateNow;-->
-<!--    document.body.appendChild(js)-->
-<!--</script>-->
 </html>

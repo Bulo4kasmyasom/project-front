@@ -4,6 +4,8 @@ body, #createPlayerForm {
     color: #333;
 }
 
+
+
 @font-face {
     font-family: 'vtksalcalina';
     src: url('fonts/vtksalcalina.woff2') format('woff2'),
@@ -56,6 +58,23 @@ select:focus {
     text-align: center;
     box-shadow: 0 0 1px 1px #ccc;
     margin-right: 5px;
+}
+
+#createPlayerForm
+{
+    padding-bottom: 10px;
+}
+
+#playerAddedResult
+{
+    border: 1px solid #9D9DFFFF;
+    box-shadow: 0 0 2px 2px #5bb0e8;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "billabong", serif;
+    font-size: 28px;
+    color: dodgerblue;
+    padding: 7px 7px;
 }
 
 .inputFields input[type=submit], #fakeButtonGeneratePlayer {
