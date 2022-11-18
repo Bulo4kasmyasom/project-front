@@ -16,7 +16,8 @@ const IMG_EDIT_PATH = "/img/edit.png";
 const IMG_SAVE_PATH = "/img/save.png";
 
 const PLAYER_ADDED_SHOW_HIDE_TIMEOUT = 3000;
-const checkInputFieldByEmpty = "Empty characters are introduced, check input field: ";
+const CHECK_INPUT_FILED_BY_EMPTY = "Empty characters are introduced, check input field: ";
+const PLAYERS_ARE_ABSENT_IN_THE_DATABASE = "Players not found. You need to create a new player!";
 const NOT_FOUND_PLAYERS = "Not found players";
 const BAD_REQUEST = "bad request";
 const BAD_PARAMETERS = "Bad parameters...";
@@ -311,7 +312,7 @@ class Player {
             if (!isEmpty(value.trim()))
                 dataParams[name] = value; // need to check params in server or with js or redirect 400 page
             else
-                return alert(checkInputFieldByEmpty + name)
+                return alert(CHECK_INPUT_FILED_BY_EMPTY + name)
 
             if (name === 'birthday')
                 dataParams[name] = Date.parse(value.toString())
@@ -380,7 +381,7 @@ class Player {
 
             for (const key in dataParams) {
                 if (isEmpty(`${dataParams[key]}`.trim()))
-                    return alert(checkInputFieldByEmpty + `${key}`)
+                    return alert(CHECK_INPUT_FILED_BY_EMPTY + `${key}`)
             }
 
             sendRequest('POST', PLAYERS_PATH + '/' + id, dataParams)
@@ -398,14 +399,27 @@ class Player {
             .then(() => {
                 sendRequest('GET', getUrlWithParamsPageSizeNumber())
                     .then(players => {
-                        if (Object.keys(players).length > 0)
-                            updateTable(players)
-                        else
-                            location.reload()
+                        this.getPlayersAndCheckCountPlayers(players);
                     })
                     .catch(() => console.log(NOT_FOUND_PLAYERS));
             })
             .catch(() => console.log(BAD_REQUEST))
     }
 
+    getPlayersAndCheckCountPlayers(players) {
+        if (Object.keys(players).length > 0)
+            updateTable(players)
+        else {
+            if (page_number > 0) {
+                page_number--;
+                sendRequest('GET', getUrlWithParamsPageSizeNumber())
+                    .then(players => {
+                        updateTable(players)
+                    })
+            } else {
+                alert(PLAYERS_ARE_ABSENT_IN_THE_DATABASE)
+                location.reload()
+            }
+        }
+    }
 }
